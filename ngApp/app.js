@@ -1,7 +1,7 @@
 var weekFour;
 (function (weekFour) {
-    angular.module('week-four', ['ngResource', 'ui.router'])
-        .config(function ($resourceProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
+    angular.module('week-four', ['ngResource', 'ui.router', 'ngMaterial'])
+        .config(function ($resourceProvider, $stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
         $stateProvider
             .state('home', {
             url: '/',
@@ -9,6 +9,11 @@ var weekFour;
         });
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true);
+        $mdThemingProvider.theme('default')
+            .primaryPalette('deep-purple')
+            .accentPalette('orange')
+            .backgroundPalette('pink')
+            .dark();
     })
         .run(function () { });
 })(weekFour || (weekFour = {}));

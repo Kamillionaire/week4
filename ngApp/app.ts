@@ -1,10 +1,11 @@
 namespace weekFour {
-  angular.module('week-four', ['ngResource', 'ui.router'])
+  angular.module('week-four', ['ngResource', 'ui.router', 'ngMaterial'])
     .config((
       $resourceProvider: ng.resource.IResourceServiceProvider,
       $stateProvider: ng.ui.IStateProvider,
       $urlRouterProvider: ng.ui.IUrlRouterProvider,
-      $locationProvider: ng.ILocationProvider
+      $locationProvider: ng.ILocationProvider,
+      $mdThemingProvider: angular.material.IThemingProvider
     ) => {
       $stateProvider
         .state('home', {
@@ -14,6 +15,11 @@ namespace weekFour {
 
       $urlRouterProvider.otherwise('/');
       $locationProvider.html5Mode(true);
+      $mdThemingProvider.theme('default')
+        .primaryPalette('deep-purple')
+        .accentPalette('orange')
+        .backgroundPalette('pink')
+        .dark();
     })
     .run(() => {});
 }
